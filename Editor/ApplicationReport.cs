@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 namespace JellyTools.JellySceneResourcesReport
@@ -137,7 +139,7 @@ namespace JellyTools.JellySceneResourcesReport
                     MoveSprites(atlasName, sprites);
 
 #if UNITY_2017_1_OR_NEWER
-                    CreateAtlas(sceneData.SceneName);
+                    CreateAtlas(atlasName);
 #endif
                 }
             }
@@ -249,23 +251,23 @@ namespace JellyTools.JellySceneResourcesReport
         }
 
 #if UNITY_2017_1_OR_NEWER
-        private static void CreateAtlas(string atlasName)
+        private void CreateAtlas(string atlasName)
         {
             var folderName = atlasName;
 
             var atlas = AssetDatabase.LoadAssetAtPath<SpriteAtlas>(
-                Path.Combine(ATLASES_PATH, folderName + ".spriteatlas"));
+                Path.Combine(_settings.AtlasesPath, folderName + ".spriteatlas"));
             if (atlas == null)
             {
-                AssetDatabase.CopyAsset(Path.Combine(ATLASES_PATH, "example.spriteatlas"),
-                    Path.Combine(ATLASES_PATH, folderName + ".spriteatlas"));
+                AssetDatabase.CopyAsset(Path.Combine(_settings.AtlasesPath, "example.spriteatlas"),
+                    Path.Combine(_settings.AtlasesPath, folderName + ".spriteatlas"));
                 atlas = AssetDatabase.LoadAssetAtPath<SpriteAtlas>(
-                    Path.Combine(ATLASES_PATH, folderName + ".spriteatlas"));
+                    Path.Combine(_settings.AtlasesPath, folderName + ".spriteatlas"));
             }
 
             atlas.Add(new[]
             {
-                AssetDatabase.LoadAssetAtPath(Path.Combine(ATLASES_PATH, folderName), typeof(Object))
+                AssetDatabase.LoadAssetAtPath(Path.Combine(_settings.AtlasesPath, folderName), typeof(Object))
             });
         }
 #endif
