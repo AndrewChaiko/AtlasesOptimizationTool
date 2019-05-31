@@ -6,14 +6,14 @@ namespace JellyTools.JellySceneResourcesReport
     public class ApplicationSpritesData
     {
         private readonly IList<SceneData> _sceneData;
-        private readonly IList<Sprite> _commonSprites;
+        private readonly IList<Texture2D> _commonSprites;
 
         public IList<SceneData> Data
         {
             get { return _sceneData; }
         }
 
-        public IList<Sprite> CommonSprites
+        public IList<Texture2D> CommonSprites
         {
             get { return _commonSprites; }
         }
@@ -21,7 +21,7 @@ namespace JellyTools.JellySceneResourcesReport
         public ApplicationSpritesData()
         {
             _sceneData = new List<SceneData>(16);
-            _commonSprites = new List<Sprite>(64);
+            _commonSprites = new List<Texture2D>(64);
         }
 
         public void AddSceneData(SceneData sceneData)

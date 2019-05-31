@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: e623e841ea41c4ec3b1fef5ad8878339
+timeCreated: 1557927572
+licenseType: Pro
 MonoImporter:
-  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _settings: {fileID: 11400000, guid: f588ba39a0d39430eb79b0651779e35a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

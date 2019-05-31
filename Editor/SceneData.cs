@@ -5,16 +5,16 @@ namespace JellyTools.JellySceneResourcesReport
 {
     public class SceneData
     {
-        private readonly IList<Sprite> _sprites;
+        private readonly IList<Texture2D> _sprites;
         private readonly string _sceneName;
 
         public SceneData(string sceneName)
         {
             _sceneName = sceneName;
-            _sprites = new List<Sprite>();
+            _sprites = new List<Texture2D>();
         }
 
-        public IList<Sprite> Sprites
+        public IList<Texture2D> Sprites
         {
             get { return _sprites; }
         }
@@ -24,7 +24,7 @@ namespace JellyTools.JellySceneResourcesReport
             get { return _sceneName; }
         }
 
-        public void AddSprite(Sprite sprite)
+        public void AddSprite(Texture2D sprite)
         {
             if (!HasSprite(sprite))
             {
@@ -32,7 +32,7 @@ namespace JellyTools.JellySceneResourcesReport
             }
         }
 
-        public bool HasSprite(Sprite sprite)
+        public bool HasSprite(Texture2D sprite)
         {
             return _sprites.Contains(sprite);
         }
